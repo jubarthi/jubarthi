@@ -61,3 +61,42 @@ body.panel-body{background:#f2f7ff;color:#04152f}body.panel-body aside{backgroun
 .depth-story{height:auto;min-height:0;padding:clamp(100px,13vh,150px) max(24px,calc((100vw - var(--max))/2));overflow:clip}.depth-stage{height:auto;min-height:0;position:relative;top:auto;overflow:visible;display:grid;grid-template-columns:minmax(280px,.82fr) minmax(420px,1.18fr);column-gap:clamp(50px,8vw,130px);align-items:start;perspective:1400px}.depth-head{position:sticky;left:auto;right:auto;top:120px;grid-column:1;grid-row:1;max-width:580px}.depth-cards{position:relative;inset:auto;grid-column:2;grid-row:1;display:grid;gap:clamp(80px,16vh,170px);padding:8vh 0 18vh;transform-style:preserve-3d}.depth-card{--p:0;position:relative;left:auto;right:auto;top:auto;width:100%;max-width:560px;min-height:min(62vh,590px);justify-self:end;transform-origin:center center;transform:perspective(1200px) translate3d(0,calc((1 - var(--p))*70px),calc((var(--p) - 1)*760px)) scale(calc(.62 + var(--p)*.38));opacity:calc(.06 + var(--p)*.94);filter:blur(calc((1 - var(--p))*8px));transition:none;will-change:transform,opacity,filter}.depth-progress{display:none}
 @media(max-width:900px){.depth-story{height:auto;padding:96px 20px}.depth-stage{display:block;height:auto}.depth-head{position:relative;top:auto;right:auto;margin-bottom:64px}.depth-head>p:last-child{display:block}.depth-cards{display:grid;gap:80px;padding:0 0 40px}.depth-card{left:auto;right:auto;top:auto;width:100%;max-width:none;min-height:520px;padding:28px;transform:perspective(1000px) translate3d(0,calc((1 - var(--p))*48px),calc((var(--p) - 1)*520px)) scale(calc(.72 + var(--p)*.28))}}
 @media(prefers-reduced-motion:reduce){.depth-story{padding:96px max(20px,calc((100vw - var(--max))/2))}.depth-stage{display:grid}.depth-cards{display:grid;margin:0;padding:0;gap:24px}.depth-card{position:relative;width:100%;transform:none!important;opacity:1!important;filter:none!important}@media(max-width:900px){.depth-stage{display:block}}}
+
+/* No mobile, o gesto continua vertical e converte o avanço desta cena em movimento horizontal. */
+@media(max-width:900px){
+  .plan-rail{height:600vh;padding:0!important}
+  .plan-rail .plan-stage{position:sticky;top:0;height:100svh;overflow:hidden;perspective:none}
+  .plan-rail .rail-head{position:absolute;z-index:8;left:20px;right:20px;top:5.5svh;padding:0;margin:0;align-items:end}
+  .plan-rail .rail-head h2{font-size:clamp(38px,11vw,56px);max-width:82vw}
+  .plan-rail .rail-status{display:flex}
+  .plan-rail .rail-status strong{font-size:36px}
+  .plan-rail .service-track{
+    position:absolute!important;
+    left:20px!important;
+    top:29svh!important;
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    width:max-content!important;
+    overflow:visible!important;
+    padding:0 20px 0 0!important;
+    transform:translate3d(var(--rail-x),0,0)!important;
+    touch-action:pan-y;
+  }
+  .plan-rail .service-card,.plan-rail .service-card:nth-child(1){
+    flex:0 0 min(86vw,470px)!important;
+    width:min(86vw,470px)!important;
+    min-width:min(86vw,470px)!important;
+    height:64svh!important;
+    min-height:400px!important;
+    max-height:560px!important;
+    padding:24px!important;
+  }
+  .plan-rail .service-card h3{font-size:clamp(32px,10vw,46px)}
+  .plan-rail .service-card ul{margin:14px 0}
+  .plan-rail .rail-progress{
+    display:block;
+    left:20px;
+    right:20px;
+    bottom:3svh;
+  }
+}
